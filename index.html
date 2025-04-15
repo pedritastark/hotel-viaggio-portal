@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel Viaggio 617 - Autenticación</title>
-  <!-- Fuente Poppins -->
+  <title>Hotel Viaggio 617 – Portal de Autenticación</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Pantalla de carga (Splash) -->
+
+  <!-- Splash screen -->
   <div id="splash">
-    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/290282357.jpg?k=3946cf029a8b003be14d5c6b66ef7a3774efc6ed5be0d41ff774956ea905bf28&o=&hp=1" alt="Logo Hotel Viaggio 617" class="logo">
-    <h1>Hotel Viaggio 617</h1>
+    <img src="assets/logo-hotel.jpg" alt="Logo Hotel Viaggio 617" class="logo">
+    <h1>Hotel Viaggio 617</h1>
     <p class="slogan">Donde cada estancia se transforma en una experiencia inolvidable.</p>
     <div class="features">
-      <span>🏙 Ubicación estratégica</span>
-      <span>🧳 Experiencia ejecutiva</span>
-      <span>🍽 Gastronomía local</span>
+      <span>Ubicación</span>
+      <span>Experiencia</span>
+      <span>Gastronomía</span>
     </div>
   </div>
 
@@ -25,21 +25,21 @@
   <div id="login" class="hidden">
     <form id="loginForm">
       <h2>Conéctate a Internet</h2>
-      <input type="text" id="nombre" placeholder="Nombre completo" required>
-      <input type="tel" id="telefono" placeholder="Teléfono" required>
-      <input type="email" id="correo" placeholder="Correo electrónico" required>
-      <input type="text" id="codigo" placeholder="Código de acceso" required>
+      <input type="text"    id="nombre"      placeholder="Nombre completo"                      required>
+      <input type="tel"     id="telefono"    placeholder="Teléfono"                              required>
+      <input type="email"   id="correo"      placeholder="Correo electrónico"                    required>
+      <input type="text"    id="codigo"      placeholder="Código de acceso"                      required>
 
       <div class="checkbox-group">
         <label>
           <input type="checkbox" id="tratamiento" required>
-          Autoriza el tratamiento de datos personales <span class="obligatorio">*</span>
+          <span>Autorizo el tratamiento de datos personales <span class="obligatorio">*</span></span>
         </label>
       </div>
       <div class="checkbox-group">
         <label>
           <input type="checkbox" id="publicidad">
-          Deseo recibir publicidad
+          <span>Deseo recibir publicidad</span>
         </label>
       </div>
 
@@ -47,12 +47,12 @@
     </form>
   </div>
 
-  <!-- Pantalla de "Conectado a Internet" -->
+  <!-- Pantalla de “Conectado” -->
   <div id="connected" class="hidden">
     <h2>Estás conectado a Internet</h2>
-    <p>Disfruta de la mejor experiencia digital en Hotel Viaggio 617.</p>
+    <p>Disfruta de la mejor experiencia digital en Hotel Viaggio 617.</p>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
