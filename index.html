@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel Viaggio 617 – Portal de Autenticación</title>
+  <title>Hotel Viaggio 617 – Portal de Autenticación</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,9 +11,9 @@
 
   <!-- Splash screen -->
   <div id="splash">
-    <img src="assets/logo-hotel.jpg" alt="Logo Hotel Viaggio 617" class="logo">
-    <h1>Hotel Viaggio 617</h1>
-    <p class="slogan">Donde cada estancia se transforma en una experiencia inolvidable.</p>
+    <img src="assets/logo-hotel.jpg" alt="Logo Hotel Viaggio 617" class="logo">
+    <h1>Hotel Viaggio 617</h1>
+    <p class="slogan">Vive el lujo y confort en cada rincón.</p>
     <div class="features">
       <span>Ubicación</span>
       <span>Experiencia</span>
@@ -43,16 +43,23 @@
         </label>
       </div>
 
+      <a href="#" class="terms-link">Términos y condiciones</a>
       <button type="submit">Conectarse</button>
     </form>
   </div>
 
-  <!-- Pantalla de “Conectado” -->
+  <!-- Pantalla de "Conectado" -->
   <div id="connected" class="hidden">
     <h2>Estás conectado a Internet</h2>
-    <p>Disfruta de la mejor experiencia digital en Hotel Viaggio 617.</p>
+    <p>Disfruta de la mejor experiencia digital en Hotel Viaggio 617.</p>
+    <button id="navigateBtn">Ir a Internet</button>
   </div>
 
   <script type="module" src="script.js"></script>
+  <script>
+    // Botón para continuar a la navegación
+    document.getElementById('navigateBtn')
+      .addEventListener('click', () => window.location.href = 'https://www.google.com');
+  </script>
 </body>
 </html>

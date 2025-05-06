@@ -3,13 +3,14 @@ import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.6.1
 
 // Configuración de Firebase: completa estos campos con tu proyecto
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
+  apiKey: "AIzaSyD_ssdJGtfVkTBG7VJIT_fgsUfFT1C-8X4",
+  authDomain: "hotel-viaggio-captive-portal.firebaseapp.com",
   databaseURL: "https://hotel-viaggio-captive-portal-default-rtdb.firebaseio.com",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_STORAGE_BUCKET",
-  messagingSenderId: "TU_MESSAGING_SENDER_ID",
-  appId: "TU_APP_ID"
+  projectId: "hotel-viaggio-captive-portal",
+  storageBucket: "hotel-viaggio-captive-portal.firebasestorage.app",
+  messagingSenderId: "820374435802",
+  appId: "1:820374435802:web:eed234e5ef1237ff9732e3",
+  measurementId: "G-F6PEVLKV5Z"
 };
 
 const app = initializeApp(firebaseConfig);
