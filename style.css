@@ -31,64 +31,51 @@ body {
   max-width: 85%;
   height: auto;
   border-radius: 10px;
-  margin-bottom: 10px;       /* reducido */
+  margin-bottom: 10px;
 }
 
 #splash h1 {
   font-size: 2.3rem;
   color: #0077cc;
-  margin-bottom: 10px;       /* ajustado */
+  margin-bottom: 10px;
 }
 
 #splash .slogan {
-  font-size: 1rem;           /* aumentado */
+  font-size: 1rem;
   color: #333;
-  margin-bottom: 20px;       /* ajustado */
+  margin-bottom: 20px;
 }
 
 #splash .features {
-  position: relative;        /* no absoluto */
-  bottom: auto;
-  margin-top: 20px;          /* espacio superior */
   display: flex;
   justify-content: space-around;
   width: 100%;
-  gap: 12px;
-  flex-wrap: nowrap;
-  font-size: 1rem;           /* más grande */
-  font-weight: 600;          /* mayor peso */
-  letter-spacing: 4px;       /* separación entre palabras */
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 4px;
   color: #28a745;
 }
 
-/* Formulario y pantalla de "Conectado" */
-#login,
-#connected {
-  background: #fff;
-  width: 90%;
+/* Tarjeta (formulario y conectado) */
+.card {
   max-width: 400px;
   margin: 20px auto;
   padding: 30px;
+  background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-/* Alinear correctamente los checkboxes */
-.checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 8px;                  /* mayor separación */
-  flex-wrap: nowrap;
+/* Títulos azules */
+.card h2 {
+  color: #0077cc;
+  margin-bottom: 20px;
 }
 
-.obligatorio {
-  color: red;
-  font-size: 0.75rem;
-}
-
-/* Inputs y botones */
-#login input {
+/* Inputs */
+.card input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -96,24 +83,55 @@ body {
   border-radius: 5px;
 }
 
-#login button {
+/* Botones */
+#login button,
+#connected button {
   width: 100%;
   padding: 10px;
-  background-color: #28a745;
-  color: #fff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 1rem;
+  cursor: pointer;
+}
+
+#login button {
+  background-color: #28a745;
+  color: #fff;
   margin-top: 10px;
 }
 
-/* Términos y condiciones más pequeño */
+#connected button {
+  background-color: #0077cc;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px 20px;
+  width: auto;
+}
+
+/* Grupo de checkboxes */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+
+.checkbox-group span {
+  font-size: 0.9rem;
+}
+
+/* Indicador obligatorio */
+.obligatorio {
+  color: red;
+  font-size: 0.75rem;
+}
+
+/* Términos y condiciones */
 .terms-link {
   display: block;
-  text-align: center;
+  font-size: 0.75rem;
   margin: 10px 0;
-  font-size: 0.75rem;        /* reducido */
   color: #0077cc;
   text-decoration: underline;
   cursor: pointer;
@@ -138,26 +156,6 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
-}
-
-/* Pantalla "Conectado" centrada */
-#connected {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;              /* centra verticalmente */
-}
-
-#connected button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #0077cc;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
 /* Responsive móvil */

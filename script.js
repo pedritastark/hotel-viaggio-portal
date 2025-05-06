@@ -14,59 +14,61 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db  = getDatabase(app);
+const dbRef = ref(getDatabase(app), 'usuarios');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const splashDuration = 2000; // 4 segundos
+document.addEventListener('DOMContentLoaded', () => {
+  const splash = document.getElementById('splash');
+  const login  = document.getElementById('login');
+  const fadeDuration   = 500;    // milisegundos de animación
+  const splashDuration = 3000;   // tiempo en milisegundos para mostrar splash
 
-  // Transición splash → formulario
+  // 2. Mostrar splash y luego formulario
   setTimeout(() => {
-    const splash = document.getElementById('splash');
     splash.classList.add('fade-out');
     setTimeout(() => {
       splash.style.display = 'none';
-      const login = document.getElementById('login');
       login.classList.remove('hidden');
       login.classList.add('fade-in');
-    }, 500);
+    }, fadeDuration);
   }, splashDuration);
 
-  // Envío del formulario
-  document.getElementById('loginForm').addEventListener('submit', async e => {
+  // 3. Manejar envío del formulario
+  const form = document.getElementById('loginForm');
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const tratamiento = document.getElementById('tratamiento');
-    if (!tratamiento.checked) {
+
+    // Validar consentimiento
+    const tratamientoChecked = document.getElementById('tratamiento').checked;
+    if (!tratamientoChecked) {
       alert("Debe autorizar el tratamiento de datos personales.");
       return;
     }
 
-    // Recopila datos
-    const nombre     = document.getElementById("nombre").value;
-    const telefono   = document.getElementById("telefono").value;
-    const correo     = document.getElementById("correo").value;
-    const codigo     = document.getElementById("codigo").value;
-    const publicidad = document.getElementById("publicidad").checked;
+    // Recopilar datos
+    const datos = {
+      nombre:     document.getElementById('nombre').value,
+      telefono:   document.getElementById('telefono').value,
+      correo:     document.getElementById('correo').value,
+      codigo:     document.getElementById('codigo').value,
+      tratamiento: true,
+      publicidad: document.getElementById('publicidad').checked,
+      fecha:      new Date().toISOString()
+    };
 
     try {
-      await push(ref(db, 'usuarios'), {
-        nombre,
-        telefono,
-        correo,
-        codigo,
-        tratamiento: true,
-        publicidad,
-        fecha: new Date().toISOString()
-      });
+      // 4. Guardar en Firebase RTDB
+      await push(dbRef, datos);
 
-      // Transición formulario → “conectado”
-      const login = document.getElementById('login');
-      login.classList.add('fade-out');
-      setTimeout(() => {
-        login.style.display = 'none';
-        const connected = document.getElementById('connected');
-        connected.classList.remove('hidden');
-        connected.classList.add('fade-in');
-      }, 500);
+      // 5. Reemplazar formulario por pantalla "Conectado"
+      const card = document.getElementById('login');
+      card.classList.remove('fade-in');
+      card.innerHTML = `
+        <h2>Estás conectado a Internet</h2>
+        <p>Disfruta de la mejor experiencia digital en Hotel Viaggio 617.</p>
+        <button id="navigateBtn">Ir a Internet</button>
+      `;
+      document.getElementById('navigateBtn')
+        .addEventListener('click', () => window.location.href = 'https://www.google.com');
 
     } catch (err) {
       console.error("Error al guardar en Firebase:", err);
